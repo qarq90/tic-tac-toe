@@ -12,8 +12,38 @@ const Game = () => {
             newBlocks[index] = dine ? "X" : "O";
             setBlocks(newBlocks);
 
-            if (blocks[0].value === "X" && blocks[1].value === "X" && blocks[2].value === "X") {
+            if (newBlocks[0] === "X" && newBlocks[1] === "X" && newBlocks[2] === "X") {
                 alert("X wins");
+            } else if (newBlocks[0] === "O" && newBlocks[1] === "O" && newBlocks[2] === "O") {
+                alert("O wins");
+            } else if (newBlocks[3] === "X" && newBlocks[4] === "X" && newBlocks[5] === "X") {
+                alert("X wins");
+            } else if (newBlocks[3] === "O" && newBlocks[4] === "O" && newBlocks[5] === "O") {
+                alert("O wins");
+            } else if (newBlocks[6] === "X" && newBlocks[7] === "X" && newBlocks[8] === "X") {
+                alert("X wins");
+            } else if (newBlocks[6] === "O" && newBlocks[7] === "O" && newBlocks[8] === "O") {
+                alert("O wins");
+            } else if (newBlocks[0] === "X" && newBlocks[3] === "X" && newBlocks[6] === "X") {
+                alert("X wins");
+            } else if (newBlocks[0] === "O" && newBlocks[3] === "O" && newBlocks[6] === "O") {
+                alert("O wins");
+            } else if (newBlocks[1] === "X" && newBlocks[4] === "X" && newBlocks[7] === "X") {
+                alert("X wins");
+            } else if (newBlocks[1] === "O" && newBlocks[4] === "O" && newBlocks[7] === "O") {
+                alert("O wins");
+            } else if (newBlocks[5] === "X" && newBlocks[5] === "X" && newBlocks[8] === "X") {
+                alert("X wins");
+            } else if (newBlocks[5] === "O" && newBlocks[5] === "O" && newBlocks[8] === "O") {
+                alert("O wins");
+            } else if (newBlocks[0] === "X" && newBlocks[4] === "X" && newBlocks[8] === "X") {
+                alert("X wins");
+            } else if (newBlocks[0] === "O" && newBlocks[4] === "O" && newBlocks[8] === "O") {
+                alert("O wins");
+            } else if (newBlocks[2] === "X" && newBlocks[4] === "X" && newBlocks[6] === "X") {
+                alert("X wins");
+            } else if (newBlocks[2] === "O" && newBlocks[4] === "O" && newBlocks[6] === "O") {
+                alert("O wins");
             }
             setDine(!dine);
         }
@@ -36,7 +66,7 @@ const Game = () => {
     );
 };
 
-const StyledHeader = styled.h1`
+const StyledHeader = styled.div`
   width: 100%;
   height: 100vh;
   display: flex;
@@ -46,6 +76,7 @@ const StyledHeader = styled.h1`
 `;
 
 const StyledHeading = styled.h1`
+  letter-spacing: 6px;
   padding-bottom: 3rem;
   font-size: 5rem;
 `;
@@ -68,6 +99,7 @@ const StyledBlock = styled.div`
   transition: 0.5s all ease;
 
   &:hover {
+    cursor: pointer;
     transform: scale(0.95);
   }
 `;
