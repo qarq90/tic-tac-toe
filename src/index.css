@@ -37,3 +37,15 @@ code {
   transition: 0.5s all ease;
   color: #001F3F;
 }
+
+.redB{
+  transition: 0.5s all ease;
+  color: #001F3F;
+  background-color: #DC143C;
+}
+
+.blueB{
+  transition: 0.5s all ease;
+  background-color: #001F3F;
+  color: #DC143C;
+}
