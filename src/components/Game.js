@@ -67,6 +67,11 @@ const Game = () => {
         }
     };
 
+    const restartHandler = () => {
+        setBlocks(Array(9).fill(""));
+        setDine(true);
+    };
+
     return (
         <>
             <StyledHeader className={dine ? "red" : "blue"}>
@@ -83,7 +88,7 @@ const Game = () => {
                         </StyledBlock>
                     ))}
                 </StyledBoard>
-                <StyledClear className={dine ? "blueB" : "redB"}>Restart</StyledClear>
+                <StyledClear className={dine ? "blueB" : "redB"} onClick={restartHandler}>Restart</StyledClear>
             </StyledHeader>
         </>
     );
@@ -116,7 +121,7 @@ const StyledPlayer = styled.div`
 
 const StyledBoard = styled.div`
   display: grid;
-  grid-template-columns: 7rem 7rem 7rem;
+  grid-template-columns: 7.5rem 7.5rem 7.5rem;
   grid-gap: 1rem;
 `;
 
@@ -128,8 +133,8 @@ const StyledBlock = styled.div`
   background-color: #666666;
   border: 2px solid black;
   border-radius: 10px;
-  width: 7rem;
-  height: 7rem;
+  width: 7.5rem;
+  height: 7.5rem;
   transition: 0.5s all ease;
 
   &:hover {
@@ -140,12 +145,12 @@ const StyledBlock = styled.div`
 
 const StyledClear = styled.div`
   margin-top: 3rem;
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   letter-spacing: 5px;
   border: 2px solid black;
   border-radius: 10px;
-  width: 15rem;
-  padding: 1rem;
+  width: 12rem;
+  padding: 0.75rem;
   display: flex;
   justify-content: center;
   align-items: center;
