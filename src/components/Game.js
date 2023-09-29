@@ -3,33 +3,38 @@ import styled from "styled-components";
 import "../index.css";
 
 const Game = () => {
-    const [dine, setDine] = useState(false);
-    const DineHandler = () => {
-        if (dine) {
-            setDine(!dine)
-        } else {
-            setDine(!dine)
+    const [dine, setDine] = useState(true);
+    const [blocks, setBlocks] = useState(Array(9).fill(""));
+
+    const blockClickHandler = (index) => {
+        if (blocks[index] === "") {
+            const newBlocks = [...blocks];
+            newBlocks[index] = dine ? "X" : "O";
+            setBlocks(newBlocks);
+
+            if (blocks[0].value === "X" && blocks[1].value === "X" && blocks[2].value === "X") {
+                alert("X wins");
+            }
+            setDine(!dine);
         }
-    }
+    };
+
     return (
         <>
             <StyledHeader className={dine ? "red" : "blue"}>
-                <StyledHeading>TIC-TAC-TOE</StyledHeading>
+                <StyledHeading className={dine ? "blueH" : "redH"}>TIC-TAC-TOE</StyledHeading>
                 <StyledBoard>
-                    <StyledBlock onClick={DineHandler}>X</StyledBlock>
-                    <StyledBlock onClick={DineHandler}>X</StyledBlock>
-                    <StyledBlock onClick={DineHandler}>X</StyledBlock>
-                    <StyledBlock onClick={DineHandler}>X</StyledBlock>
-                    <StyledBlock onClick={DineHandler}>X</StyledBlock>
-                    <StyledBlock onClick={DineHandler}>X</StyledBlock>
-                    <StyledBlock onClick={DineHandler}>X</StyledBlock>
-                    <StyledBlock onClick={DineHandler}>X</StyledBlock>
-                    <StyledBlock onClick={DineHandler}>X</StyledBlock>
+                    {blocks.map((content, index) => (
+                        <StyledBlock className={dine ? "red" : "blue"} key={index}
+                                     onClick={() => blockClickHandler(index)}>
+                            {content}
+                        </StyledBlock>
+                    ))}
                 </StyledBoard>
             </StyledHeader>
         </>
-    )
-}
+    );
+};
 
 const StyledHeader = styled.h1`
   width: 100%;
@@ -48,16 +53,14 @@ const StyledBoard = styled.div`
   display: grid;
   grid-template-columns: 30% 30% 30%;
   grid-gap: 20px;
-
 `;
 
 const StyledBlock = styled.div`
   font-size: 7.5rem;
-  color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #222222;
+  background-color: #666666;
   border: 2px solid black;
   border-radius: 10px;
   width: 10rem;
@@ -65,6 +68,8 @@ const StyledBlock = styled.div`
   transition: 0.5s all ease;
 
   &:hover {
-    scale: 0.95;
-  }`;
+    transform: scale(0.95);
+  }
+`;
+
 export default Game;

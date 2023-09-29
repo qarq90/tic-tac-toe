@@ -17,9 +17,23 @@ code {
 }
 
 .red{
+  transition: 0.5s all ease;
+  color: #DC143C;
   background-color: #DC143C;
 }
 
 .blue{
+  transition: 0.5s all ease;
+  color: #001F3F;
   background-color: #001F3F;
+}
+
+.redH{
+  transition: 0.5s all ease;
+  color: #DC143C;
+}
+
+.blueH{
+  transition: 0.5s all ease;
+  color: #001F3F;
 }
