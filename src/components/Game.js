@@ -155,7 +155,6 @@ const StyledBlock = styled.div`
   width: 7.5rem;
   height: 7.5rem;
   transition: 0.5s all ease;
-
   &:hover {
     cursor: pointer;
     transform: scale(0.95);
